@@ -1,0 +1,7 @@
+box: jamesdbloom/docker-java8-maven
+build:
+  steps:
+    - script:
+       code: |
+         bash gradlew clean jar
+
