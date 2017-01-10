@@ -1,4 +1,4 @@
-box: jamesdbloom/docker-java8-maven
+box: dockerfile/java:oracle-java8
 build:
   steps:
     - script:
