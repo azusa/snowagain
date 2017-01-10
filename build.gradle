@@ -52,13 +52,23 @@ junitPlatform {
 }
 
 dependencies {
+    compile 'de.danielbechler:java-object-diff:0.94'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
+    testCompile group: 'org.lastaflute', name: 'lasta-di', version: '0.7.2'
+    testCompile group: 'org.lastaflute', name: 'lastaflute', version: '0.8.8'
+
+
     // JUnit Jupiter API and TestEngine implementation
     testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testRuntime group: 'com.h2database', name: 'h2', version: '1.4.193'
+    testCompile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+    testCompile group: 'org.mybatis', name: 'mybatis-migrations', version: '3.2.1'
+    testRuntime group: 'javax.transaction', name: 'javax.transaction-api', version: '1.2'
 
-    // If you also want to support JUnit 3 and JUnit 4 tests
-    testCompile("junit:junit:${junit4Version}")
-    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
+
+
+
 
     testRuntime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
     testRuntime("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
