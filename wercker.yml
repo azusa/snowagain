@@ -1,4 +1,4 @@
-box: dockerfile/java:oracle-java8
+box: vixns/java8
 build:
   steps:
     - script:
