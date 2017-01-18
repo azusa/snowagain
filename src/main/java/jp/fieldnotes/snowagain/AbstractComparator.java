@@ -17,6 +17,7 @@ package jp.fieldnotes.snowagain;
 
 import de.danielbechler.diff.ObjectDifferBuilder;
 import de.danielbechler.diff.node.DiffNode;
+import jp.fieldnotes.snowagain.exception.ConversationException;
 
 /**
  * Abstract class for {@link Comparator}.

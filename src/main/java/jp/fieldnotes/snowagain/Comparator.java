@@ -15,9 +15,8 @@
  */
 package jp.fieldnotes.snowagain;
 
-/**
- * Created by azusa on 2017/01/08.
- */
+import jp.fieldnotes.snowagain.exception.ConversationException;
+
 public interface Comparator {
 
     /**

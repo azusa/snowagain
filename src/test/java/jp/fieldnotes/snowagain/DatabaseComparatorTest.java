@@ -26,11 +26,8 @@ import org.lastaflute.di.core.factory.SingletonLaContainerFactory;
 
 import javax.sql.DataSource;
 import javax.transaction.TransactionManager;
-
 import java.io.File;
 import java.util.Properties;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class DatabaseComparatorTest {
 
@@ -41,13 +38,14 @@ class DatabaseComparatorTest {
     @BeforeEach
     public void before() throws  Exception{
         SingletonLaContainerFactory.init();
-//        tm = SingletonLaContainer.getComponent(TransactionManager.class);
-//        tm.begin();
         ds = SingletonLaContainer.getComponent(DataSource.class);
         Properties prop = new Properties();
         prop.load(DatabaseComparatorTest.class.getResourceAsStream("/development.properties"));
         FileMigrationLoader loader = new FileMigrationLoader(new File("src/test/resources/migration"), "UTF-8", prop);
         new UpOperation().operate(new DataSourceConnectionProvider(ds),loader, null, System.out);
+        tm = SingletonLaContainer.getComponent(TransactionManager.class);
+        tm.begin();
+
     }
 
     @Test

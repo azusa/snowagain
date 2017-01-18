@@ -13,7 +13,9 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.fieldnotes.snowagain;
+package jp.fieldnotes.snowagain.exception;
+
+import jp.fieldnotes.snowagain.Executor;
 
 /**
  * Wrapper class for exception that happen in {@link Executor}

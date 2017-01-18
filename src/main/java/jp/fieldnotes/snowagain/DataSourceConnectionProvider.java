@@ -15,29 +15,25 @@
  */
 package jp.fieldnotes.snowagain;
 
-public class DatabaseComparator extends AbstractComparator {
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-    private ConnectionProvider connectionProvider;
+public class DataSourceConnectionProvider implements ConnectionProvider {
 
-    private DatabaseCompareOption option;
+    private DataSource dataSource;
 
     /**
      * Constructor.
-     * @param connectionProvider providing a connection for using for compare.
-     * @param option
+     *
+     * @param dataSource DataSource providing a connection.
      */
-    public DatabaseComparator(ConnectionProvider connectionProvider, DatabaseCompareOption option) {
-        this.connectionProvider = connectionProvider;
-        this.option = option;
+    public DataSourceConnectionProvider(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     @Override
-    protected Object before() throws Exception {
-        return null;
-    }
-
-    @Override
-    protected Object after() throws Exception {
-        return null;
+    public Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
     }
 }
